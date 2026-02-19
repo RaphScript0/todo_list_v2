@@ -10,7 +10,7 @@ export function zodError(err: ZodError, status = 400) {
     {
       error: 'VALIDATION_ERROR',
       details: err.issues.map((i) => ({
-        path: i.path.join('.'),
+        path: i.path.map(String).join('.'),
         message: i.message,
       })),
     },
