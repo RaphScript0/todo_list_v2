@@ -65,9 +65,11 @@ async function toError(res: Response): Promise<Error> {
   const base = `Request failed: ${res.status} ${res.statusText}`;
   if (!payload) return new Error(base);
 
-  if (payload.error === "VALIDATION_ERROR" && payload.details?.length) {
+  if (payload.error === "VALIDATION_ERROR" && Array.isArray(payload.details) && payload.details.length) {
     const details = payload.details
-      .map((d) => (d.path ? `${d.path}: ${d.message}` : d.message))
+      .map((d: { path?: string; message: string }) =>
+        d.path ? `${d.path}: ${d.message}` : d.message,
+      )
       .join(", ");
     return new Error(`${base} (${payload.error}) — ${details}`);
   }
