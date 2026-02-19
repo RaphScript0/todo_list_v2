@@ -19,8 +19,9 @@ This project uses SQLite with Prisma.
 
 - Connection string is in `.env` under `DATABASE_URL`
 - Default SQLite file path: `./dev.db` (project root)
+- The SQLite db file is gitignored; it will be created on first migrate.
 
-Run migrations + generate client:
+Run migrations + generate client (creates `dev.db` if missing):
 
 ```bash
 npm run prisma:migrate:dev
