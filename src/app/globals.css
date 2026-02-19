@@ -10,10 +10,241 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.page {
+  min-height: 100svh;
+  padding: 48px 16px;
+  display: grid;
+  place-items: start center;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.todoCard {
+  width: 100%;
+  max-width: 720px;
+  background: var(--background);
+  border: 1px solid rgba(113, 113, 122, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.todoHeader {
+  margin-bottom: 20px;
+}
+
+.todoTitle {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.todoSubtitle {
+  margin: 6px 0 0;
+  color: rgba(113, 113, 122, 1);
+  font-size: 14px;
+}
+
+.todoForm {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.todoField {
+  flex: 1;
+  min-width: 220px;
+}
+
+.todoInput {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(113, 113, 122, 0.25);
+  border-radius: 12px;
+  background: var(--background);
+  color: var(--foreground);
+  outline: none;
+}
+
+.todoInput:focus-visible {
+  box-shadow: 0 0 0 4px rgba(23, 23, 23, 0.12);
+}
+
+.todoButtonPrimary {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.todoButtonPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.todoErrorRegion {
+  margin-top: 14px;
+}
+
+.todoError {
+  border: 1px solid rgba(185, 28, 28, 0.35);
+  background: rgba(254, 242, 242, 1);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.todoErrorTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.todoErrorMsg {
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+.todoMeta {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.todoRemaining {
+  margin: 0;
+  color: rgba(113, 113, 122, 1);
+  font-size: 14px;
+}
+
+.todoFilters {
+  display: flex;
+  gap: 8px;
+}
+
+.todoFilter {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(113, 113, 122, 0.25);
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.todoFilterActive {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: transparent;
+}
+
+.todoListWrap {
+  margin-top: 14px;
+}
+
+.todoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.todoRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid rgba(113, 113, 122, 0.25);
+  background: var(--background);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.todoRowMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.todoCheckbox {
+  width: 16px;
+  height: 16px;
+}
+
+.todoRowLabel {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.todoRowLabelDone {
+  color: rgba(113, 113, 122, 1);
+  text-decoration: line-through;
+}
+
+.todoButtonGhost {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.todoButtonGhost:hover {
+  background: rgba(244, 244, 245, 1);
+}
+
+.todoButtonGhost:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.todoEmpty {
+  margin: 0;
+  border: 1px dashed rgba(113, 113, 122, 0.35);
+  border-radius: 12px;
+  padding: 22px 14px;
+  color: rgba(113, 113, 122, 1);
+  text-align: center;
+  font-size: 14px;
+}
+
+.todoSkeleton {
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(244, 244, 245, 1);
 }
